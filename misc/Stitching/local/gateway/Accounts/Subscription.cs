@@ -9,10 +9,9 @@ namespace Demo.Accounts
     public class Subscription
     {
         [SubscribeAndResolve]
-        public async ValueTask<IAsyncEnumerable<int>> Count(CancellationToken cancellationToken)
+        public ValueTask<IAsyncEnumerable<int>> Count(CancellationToken cancellationToken)
         {
             var channel = Channel.CreateUnbounded<int>();
-            await Task.Yield();
 
             async void CountAsync()
             {
@@ -35,7 +34,7 @@ namespace Demo.Accounts
 
             CountAsync();
 
-            return channel.Reader.ReadAllAsync(cancellationToken);
+            return new ValueTask<IAsyncEnumerable<int>>( channel.Reader.ReadAllAsync(cancellationToken) );
         }
     }
 }

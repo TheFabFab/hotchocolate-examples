@@ -67,7 +67,11 @@ namespace Demo.Gateway
 
             app.UseRouting();
 
-            app.UseEndpoints(endpoints => { endpoints.MapGraphQL(); });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapGraphQL("/graphql/" + Accounts, Accounts);
+                endpoints.MapGraphQL();
+            });
         }
     }
 }
