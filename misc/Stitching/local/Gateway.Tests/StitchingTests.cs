@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Threading.Tasks;
 using Demo.Gateway;
 using HotChocolate;
@@ -7,9 +8,10 @@ using NUnit.Framework;
 
 namespace Gateway.Tests
 {
-    public class Tests
+    public class StitchingTests
     {
         private const string UsersQuery = "query { users { id, name } }";
+        private const string CountSubscription = "subscription { count }";
         private IRequestExecutor _accountsSchemaExecutor;
         private IRequestExecutor _stitchedSchemaExecutor;
 
@@ -40,6 +42,26 @@ namespace Gateway.Tests
             var executionResult = await _stitchedSchemaExecutor.ExecuteAsync(UsersQuery);
             var resultJson = await executionResult.ToJsonAsync();
             TestContext.WriteLine(resultJson);
+            Assert.That(executionResult.Errors?.Count, Is.Null.Or.EqualTo(0));
+        }
+
+        [Test]
+        public async Task SubscriptionAgainstAccountSchema()
+        {
+            var executionResult = await _accountsSchemaExecutor.ExecuteAsync(CountSubscription);
+            var resultJson = await executionResult.ToJsonAsync();
+            TestContext.WriteLine(resultJson);
+            Assert.That(executionResult.Errors?.FirstOrDefault()?.Message, Is.Null);
+            Assert.That(executionResult.Errors?.Count, Is.Null.Or.EqualTo(0));
+        }
+
+        [Test]
+        public async Task SubscriptionAgainstStitchedSchema()
+        {
+            var executionResult = await _stitchedSchemaExecutor.ExecuteAsync(CountSubscription);
+            var resultJson = await executionResult.ToJsonAsync();
+            TestContext.WriteLine(resultJson);
+            Assert.That(executionResult.Errors?.FirstOrDefault()?.Message, Is.Null);
             Assert.That(executionResult.Errors?.Count, Is.Null.Or.EqualTo(0));
         }
     }

@@ -25,7 +25,11 @@ namespace Demo.Gateway
             services
                 .AddSingleton<UserRepository>()
                 .AddGraphQLServer(Accounts)
-                .ConfigureSchema(schemaBuilder => schemaBuilder.AddQueryType<Accounts.Query>());
+                .ConfigureSchema(schemaBuilder =>
+                {
+                    schemaBuilder.AddQueryType<Accounts.Query>();
+                    schemaBuilder.AddSubscriptionType<Accounts.Subscription>();
+                });
 
             services
                 .AddSingleton<InventoryInfoRepository>()
