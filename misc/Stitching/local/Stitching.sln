@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gateway", "gateway\Gateway.csproj", "{7D556817-8C10-4B6B-8BC7-BDD832F98CE8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gateway.Tests", "Gateway.Tests\Gateway.Tests.csproj", "{9C04A60D-A789-4095-8777-5C6BD9455CF0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,18 @@ Global
 		{7D556817-8C10-4B6B-8BC7-BDD832F98CE8}.Release|x64.Build.0 = Release|Any CPU
 		{7D556817-8C10-4B6B-8BC7-BDD832F98CE8}.Release|x86.ActiveCfg = Release|Any CPU
 		{7D556817-8C10-4B6B-8BC7-BDD832F98CE8}.Release|x86.Build.0 = Release|Any CPU
+		{9C04A60D-A789-4095-8777-5C6BD9455CF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C04A60D-A789-4095-8777-5C6BD9455CF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C04A60D-A789-4095-8777-5C6BD9455CF0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9C04A60D-A789-4095-8777-5C6BD9455CF0}.Debug|x64.Build.0 = Debug|Any CPU
+		{9C04A60D-A789-4095-8777-5C6BD9455CF0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9C04A60D-A789-4095-8777-5C6BD9455CF0}.Debug|x86.Build.0 = Debug|Any CPU
+		{9C04A60D-A789-4095-8777-5C6BD9455CF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C04A60D-A789-4095-8777-5C6BD9455CF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C04A60D-A789-4095-8777-5C6BD9455CF0}.Release|x64.ActiveCfg = Release|Any CPU
+		{9C04A60D-A789-4095-8777-5C6BD9455CF0}.Release|x64.Build.0 = Release|Any CPU
+		{9C04A60D-A789-4095-8777-5C6BD9455CF0}.Release|x86.ActiveCfg = Release|Any CPU
+		{9C04A60D-A789-4095-8777-5C6BD9455CF0}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
